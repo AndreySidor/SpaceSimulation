@@ -1,34 +1,27 @@
 package com.simulation.solarsystem.objects.utils
 
-import kotlin.math.abs
+import kotlin.math.pow
 import kotlin.math.sqrt
 
 /**
- * Позиция объекта в пространстве
- * @param x координата оси абсцисс (горизонталь)
- * @param y координата оси ординат (вертикаль)
+ * Позиция в двумерном пространстве
  */
 data class Position(
-    var x : Double,
-    var y : Double
-) {
-
-    /**
-     * Смещение позиции
-     */
-    fun offset(x : Double, y : Double) {
-        this.x += x
-        this.y += y
-    }
+    override val x: Double,
+    override val y: Double
+) : TwoDimensional {
 
     /**
      * Вычисление расстояния между двумя позициями (прямая)
      */
-    fun distance(point : Position) : Double {
-        return when {
-            this.x == point.x -> abs(point.y - this.y)
-            this.y == point.y -> abs(point.x - this.x)
-            else -> sqrt(abs(point.x - this.x) + abs(point.y - this.y))
-        }
-    }
+    fun distance(point: Position): Double =
+        sqrt((point.x - this.x).pow(2) + (point.y - this.y).pow(2))
+
+    /**
+     * Смещение позиции
+     */
+    fun offset(x: Double, y: Double): Position = Position(
+        x = this.x + x,
+        y = this.y + y
+    )
 }

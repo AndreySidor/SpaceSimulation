@@ -2,8 +2,8 @@ package com.simulation.solarsystem.objects.classes
 
 import com.simulation.solarsystem.objects.CanBeSatellite
 import com.simulation.solarsystem.objects.RegularShapeObject
-import com.simulation.solarsystem.objects.classes.SpaceObject
 import com.simulation.solarsystem.objects.utils.Position
+import com.simulation.solarsystem.objects.utils.Vector
 
 /**
  * Планета
@@ -13,8 +13,8 @@ class Planet(
     name: String,
     mass: Double,
     position: Position,
-    acceleration: Double,
-    speed: Double,
+    acceleration: Vector,
+    speed: Vector,
     val satellites : MutableList<CanBeSatellite> = mutableListOf(),
     override val size: Double,
     override var motherObject: SpaceObject? = null

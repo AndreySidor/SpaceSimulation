@@ -1,6 +1,7 @@
 package com.simulation.solarsystem.objects.classes
 
 import com.simulation.solarsystem.objects.utils.Position
+import com.simulation.solarsystem.objects.utils.Vector
 
 /**
  * Абстрактный класс космического тела
@@ -14,6 +15,6 @@ sealed class SpaceObject(
     val name : String,
     val mass : Double,
     var position : Position,
-    var acceleration : Double,
-    var speed : Double
+    var acceleration: Vector,
+    var speed: Vector
 )

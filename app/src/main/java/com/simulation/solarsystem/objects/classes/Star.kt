@@ -2,6 +2,7 @@ package com.simulation.solarsystem.objects.classes
 
 import com.simulation.solarsystem.objects.RegularShapeObject
 import com.simulation.solarsystem.objects.utils.Position
+import com.simulation.solarsystem.objects.utils.Vector
 
 /**
  * Звезда
@@ -12,8 +13,8 @@ class Star(
     name: String,
     mass: Double,
     position: Position,
-    acceleration: Double,
-    speed: Double,
+    acceleration: Vector,
+    speed: Vector,
     var type : Type,
     val spaceObjects : MutableList<SpaceObject> = mutableListOf(),
     override val size: Double
